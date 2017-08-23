@@ -1,6 +1,14 @@
-import AwesomeComponent from './AwesomeComponent';
 import React from 'react';
 import { render } from 'react-dom';
-import FunctionAsChild from './FunctionAsChild';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import TodoApp from './TodoApp';
 
-render(<AwesomeComponent/>, <FunctionAsChild/>, document.getElementById('app'));
+const store = createStore(TodoApp);
+render (
+		<Provider store={store}>
+			<TodoApp />
+      <div> test </div>
+		</Provider>,
+		document.getElementById('root')
+);
