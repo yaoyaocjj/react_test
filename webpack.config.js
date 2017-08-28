@@ -12,12 +12,28 @@ module.exports = {
 		loaders: [
 			{
 				test: /\.scss$/,
-				loaders: ['style-loader', 'css-loader', 'sass-loader']
+				loaders: ['style-loader', 'css-loader', 'sass-loader', 'file-loader']
 			},
 			{
 				test: /\.jsx?$/,
 				loaders: ['babel-loader']
-			}]
+			},
+      {
+        test: /\.(gif|png|jpe?g|svg|webp)$/i,
+        loaders: [
+          'file-loader?hash=sha512&digest=hex&name=[hash].[ext]',
+          'image-webpack-loader'
+        ]
+      },
+      {
+        test: /\.jsx?$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/,
+        query: {
+          presets: ['es2015']
+        }
+      }
+    ]
 	},
 
 		plugins: [

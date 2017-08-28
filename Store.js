@@ -10,3 +10,4 @@ export default function Store(initialState) {
     composeWithDevTools(applyMiddleware(thunk)),
   )
 }
+
