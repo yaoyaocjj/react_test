@@ -1,6 +1,5 @@
 import React from 'react';
-import { FilterTypes } from '../../constants';
-import { bindActionCreators } from 'redux';
+import { FilterTypes } from '../filter/constants';
 import { toggleTodo, removeTodo} from '../../actions/TodoAction';
 import { connect } from 'react-redux';
 import TodoItem from './todoItem.js';
@@ -36,10 +35,16 @@ const selectVisibleTodos = (todos, filter) => {
   }
 };
 
-const mapDispatchToProps = (dispatch) => bindActionCreators({
-  onToggleTodo: toggleTodo,
-  OnRemoveTodo: removeTodo
-},dispatch);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onToggleTodo: (id) => {
+      dispatch(toggleTodo(id));
+    },
+    onRemoveTodo: (id) => {
+      dispatch(removeTodo(id));
+    }
+  };
+};
 
 const mapStateToProps = (state) => {
   return {

@@ -1,10 +1,10 @@
-var path = require('path');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+let path = require('path');
+let HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-	entry: './app/index',
+	entry: './src/index',
 	output: {
-		path: path.join(__dirname, './build'),
+		path: path.join(__dirname, '/build'),
 		filename: 'bundle.js'
 	},
 
@@ -32,5 +32,6 @@ module.exports = {
 			contentBase:'./build/',
 			port:'8081'
 		}
-}
+};
+
 
